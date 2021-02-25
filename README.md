@@ -1,6 +1,10 @@
 # Constantium Project Template
 
+## Pre-requisites 
+- Terraform installed 
+- git installed 
 ###
+
 *Clone Repo and create space for the project*
 
 ```
@@ -14,3 +18,7 @@ cd  constantium-platform
 ``` terraform 
 terraform init && terraform plan && terraform apply
 ```
+
+
+## Docker Images (coming soon)
+
