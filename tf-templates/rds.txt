@@ -1,0 +1,25 @@
+
+resource "aws_db_subnet_group" "logflow" {
+  name       = "logflow"
+  subnet_ids = [aws_subnet.PrivateAZC.id, aws_subnet.PrivateAZB.id]
+  description 		   = "Prod logflow RDS instance"
+
+  tags = {
+    Name = "Logflow DB Subnet Group"
+  }
+}
+
+resource "aws_db_instance" "logflowdb" {
+  allocated_storage    = 10
+  max_allocated_storage = 50
+  engine               = "mysql"
+  engine_version       = "5.7"
+  instance_class       = "db.t2.medium"
+  db_subnet_group_name	   = "logflow"
+  name                 = "logflowdb"
+  username             = "logflowdba"
+  deletion_protection    = "false"
+  password             = "var.dbpass"
+  parameter_group_name = "default.mysql5.7"
+  skip_final_snapshot  = true
+}

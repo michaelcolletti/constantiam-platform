@@ -1,0 +1,6 @@
+FROM alpine:3.12.4 as build 
+# do stuf
+#
+# more stuff 
+RUN ["echo its on, now "]
+
